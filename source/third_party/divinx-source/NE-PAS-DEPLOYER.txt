@@ -1,0 +1,2 @@
+EXPERIMENTAL — NE PAS DEPLOYER
+Ces sources publiques ne correspondent pas complètement à la DLL officielle 3.2.5. Leur compilation provoque un crash dans Live_IsUserInGame sur le build installé. La distribution utilise exclusivement la DLL officielle localisée, dont les références aux textes sont adaptées avec un manifeste vérifiable. Ces sources sont conservées pour étude ; elles ne font pas partie du build de production.

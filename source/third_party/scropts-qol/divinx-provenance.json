@@ -1,0 +1,1464 @@
+{
+  "base_sha256": "60e43f0b2a6ca97b9f2d609830f32c33818cfa02581417229b006593a88a46eb",
+  "sha256": "a470c355f886d2b40c5f678219b4cac61956142423c8ae0bf8e4366d570e14e0",
+  "translation_count": 291,
+  "reference_count": 300,
+  "changes": "UI strings and their existing references; title; PE read-only data section. Original function code otherwise unchanged.",
+  "translations": [
+    {
+      "from": "Save Preview as PNG",
+      "to": "Enregistrer l'aperçu en PNG",
+      "references": 1
+    },
+    {
+      "from": "Width",
+      "to": "Largeur",
+      "references": 1
+    },
+    {
+      "from": "Height",
+      "to": "Hauteur",
+      "references": 1
+    },
+    {
+      "from": "Save PNG",
+      "to": "Enregistrer en PNG",
+      "references": 1
+    },
+    {
+      "from": "No preview SRV",
+      "to": "Aucune texture d'aperçu",
+      "references": 1
+    },
+    {
+      "from": "Preview",
+      "to": "Aperçu",
+      "references": 1
+    },
+    {
+      "from": "Emblem Quality",
+      "to": "Qualité de l'emblème",
+      "references": 1
+    },
+    {
+      "from": "Rendering.",
+      "to": "Rendu en cours.",
+      "references": 1
+    },
+    {
+      "from": "No preview selected",
+      "to": "Aucun aperçu sélectionné",
+      "references": 1
+    },
+    {
+      "from": "Target Slot",
+      "to": "Emplacement cible",
+      "references": 1
+    },
+    {
+      "from": "Allow overwrite used slot",
+      "to": "Autoriser le remplacement d'un emplacement utilisé",
+      "references": 1
+    },
+    {
+      "from": "Import Emblem Name...",
+      "to": "Nom de l'emblème importé...",
+      "references": 1
+    },
+    {
+      "from": "Rename",
+      "to": "Renommer",
+      "references": 1
+    },
+    {
+      "from": "Refresh Emblem Files",
+      "to": "Actualiser les fichiers d'emblèmes",
+      "references": 1
+    },
+    {
+      "from": "No .emblem files found.",
+      "to": "Aucun fichier .emblem trouvé.",
+      "references": 1
+    },
+    {
+      "from": "Available .emblem files:",
+      "to": "Fichiers .emblem disponibles :",
+      "references": 1
+    },
+    {
+      "from": "Import Selected Emblem",
+      "to": "Importer l'emblème sélectionné",
+      "references": 2
+    },
+    {
+      "from": "Refresh Emblem Slots",
+      "to": "Actualiser les emplacements",
+      "references": 1
+    },
+    {
+      "from": "Show empty slots",
+      "to": "Afficher les emplacements vides",
+      "references": 1
+    },
+    {
+      "from": "No emblem slots found.",
+      "to": "Aucun emplacement d'emblème trouvé.",
+      "references": 1
+    },
+    {
+      "from": "Emblem slots:",
+      "to": "Emplacements d'emblèmes :",
+      "references": 1
+    },
+    {
+      "from": "Export Selected Emblem",
+      "to": "Exporter l'emblème sélectionné",
+      "references": 2
+    },
+    {
+      "from": "Emblem Name",
+      "to": "Nom de l'emblème",
+      "references": 1
+    },
+    {
+      "from": "Rename Selected Emblem",
+      "to": "Renommer l'emblème sélectionné",
+      "references": 1
+    },
+    {
+      "from": "Export",
+      "to": "Exporter",
+      "references": 1
+    },
+    {
+      "from": "Import",
+      "to": "Importer",
+      "references": 1
+    },
+    {
+      "from": "Account",
+      "to": "Compte",
+      "references": 1
+    },
+    {
+      "from": "Freeze Stats",
+      "to": "Geler les stats",
+      "references": 1
+    },
+    {
+      "from": "Enable to disable the 'To protect your stats you have been kicked to the main menu' error. Use for reverting buggy MP stat edits, No stats are saved to profile while enabled!",
+      "to": "Désactive le retour au menu lié à la protection des statistiques. Utile pour corriger des modifications de stats multijoueur. Aucune statistique n'est enregistrée dans le profil tant que cette option est active !",
+      "references": 1
+    },
+    {
+      "from": "Arena",
+      "to": "Arène",
+      "references": 1
+    },
+    {
+      "from": "Enable to switch between MP and Arena stat editor.",
+      "to": "Basculer entre les statistiques multijoueur et Arène.",
+      "references": 1
+    },
+    {
+      "from": "Set Rank",
+      "to": "Appliquer le rang",
+      "references": 1
+    },
+    {
+      "from": "Set Rank Icon",
+      "to": "Appliquer l'icône",
+      "references": 1
+    },
+    {
+      "from": "Set ALL Stats",
+      "to": "Appliquer toutes les stats",
+      "references": 1
+    },
+    {
+      "from": "Rank Editor",
+      "to": "Rang et prestige",
+      "references": 1
+    },
+    {
+      "from": "Input Level and Prestige Master Level. XP is pulled from the game's rank tables automatically.",
+      "to": "Saisissez le niveau et le niveau de prestige maître. L'XP est calculée automatiquement à partir des tables du jeu.",
+      "references": 1
+    },
+    {
+      "from": "Send##PRESTIGE",
+      "to": "Appliquer##PRESTIGE",
+      "references": 1
+    },
+    {
+      "from": "Send##LEVEL",
+      "to": "Appliquer##LEVEL",
+      "references": 1
+    },
+    {
+      "from": "Level ##RANK",
+      "to": "Niveau ##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##PRESTIGEMASTERRANK",
+      "to": "Appliquer##PRESTIGEMASTERRANK",
+      "references": 1
+    },
+    {
+      "from": "Prestige Master Lvl##RANK",
+      "to": "Niveau prestige maître##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##RANKICON",
+      "to": "Appliquer##RANKICON",
+      "references": 1
+    },
+    {
+      "from": "Rank Icon##RANK",
+      "to": "Icône de rang##RANK",
+      "references": 1
+    },
+    {
+      "from": "Stat Editor",
+      "to": "Statistiques",
+      "references": 2
+    },
+    {
+      "from": "Send##SCORE",
+      "to": "Appliquer##SCORE",
+      "references": 1
+    },
+    {
+      "from": "Send##KILLS",
+      "to": "Appliquer##KILLS",
+      "references": 1
+    },
+    {
+      "from": "Kills##RANK",
+      "to": "Éliminations##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##DEATHS",
+      "to": "Appliquer##DEATHS",
+      "references": 1
+    },
+    {
+      "from": "Deaths##RANK",
+      "to": "Morts##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##ASSISTS",
+      "to": "Appliquer##ASSISTS",
+      "references": 1
+    },
+    {
+      "from": "Assists##RANK",
+      "to": "Assistances##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##HEADSHOTS",
+      "to": "Appliquer##HEADSHOTS",
+      "references": 1
+    },
+    {
+      "from": "Headshots##RANK",
+      "to": "Tirs à la tête##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##TEAMKILLS",
+      "to": "Appliquer##TEAMKILLS",
+      "references": 1
+    },
+    {
+      "from": "Teamkills##RANK",
+      "to": "Éliminations alliées##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##SUICIDES",
+      "to": "Appliquer##SUICIDES",
+      "references": 1
+    },
+    {
+      "from": "Send##TPALLIES",
+      "to": "Appliquer##TPALLIES",
+      "references": 1
+    },
+    {
+      "from": "Time Played (Allies)##RANK",
+      "to": "Temps de jeu (alliés)##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##TPOPFOR",
+      "to": "Appliquer##TPOPFOR",
+      "references": 1
+    },
+    {
+      "from": "Time Played (OpFor)##RANK",
+      "to": "Temps de jeu (adversaires)##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##TPOTHER",
+      "to": "Appliquer##TPOTHER",
+      "references": 1
+    },
+    {
+      "from": "Time Played (Other)##RANK",
+      "to": "Temps de jeu (autre)##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##TPTOTAL",
+      "to": "Appliquer##TPTOTAL",
+      "references": 1
+    },
+    {
+      "from": "Time Played (Total)##RANK",
+      "to": "Temps de jeu total##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##TOTALGAMESPLAYED",
+      "to": "Appliquer##TOTALGAMESPLAYED",
+      "references": 1
+    },
+    {
+      "from": "Total Games Played##RANK",
+      "to": "Parties jouées##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##KDRATIO",
+      "to": "Appliquer##KDRATIO",
+      "references": 1
+    },
+    {
+      "from": "KD Ratio##RANK",
+      "to": "Ratio É/M##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##WINS",
+      "to": "Appliquer##WINS",
+      "references": 1
+    },
+    {
+      "from": "Wins##RANK",
+      "to": "Victoires##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##LOSSES",
+      "to": "Appliquer##LOSSES",
+      "references": 1
+    },
+    {
+      "from": "Losses##RANK",
+      "to": "Défaites##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##TIES",
+      "to": "Appliquer##TIES",
+      "references": 1
+    },
+    {
+      "from": "Ties##RANK",
+      "to": "Égalités##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##CUR_WIN_STERAK",
+      "to": "Appliquer##CUR_WIN_STERAK",
+      "references": 1
+    },
+    {
+      "from": "Win Streak##RANK",
+      "to": "Série de victoires##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##WLRATIO",
+      "to": "Appliquer##WLRATIO",
+      "references": 1
+    },
+    {
+      "from": "WL Ratio##RANK",
+      "to": "Ratio V/D##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##HITS",
+      "to": "Appliquer##HITS",
+      "references": 1
+    },
+    {
+      "from": "Hits##RANK",
+      "to": "Tirs au but##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##MISSES",
+      "to": "Appliquer##MISSES",
+      "references": 1
+    },
+    {
+      "from": "Misses##RANK",
+      "to": "Tirs manqués##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##TOTALSHOTS",
+      "to": "Appliquer##TOTALSHOTS",
+      "references": 1
+    },
+    {
+      "from": "Total Shots##RANK",
+      "to": "Tirs totaux##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##ACCURACY",
+      "to": "Appliquer##ACCURACY",
+      "references": 1
+    },
+    {
+      "from": "Accuracy##RANK",
+      "to": "Précision##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##HIGHESTROUND",
+      "to": "Appliquer##HIGHESTROUND",
+      "references": 1
+    },
+    {
+      "from": "Highest Round Reached##RANK",
+      "to": "Meilleure manche##RANK",
+      "references": 1
+    },
+    {
+      "from": "Send##TOTALROUNDSSURVIVED",
+      "to": "Appliquer##TOTALROUNDSSURVIVED",
+      "references": 1
+    },
+    {
+      "from": "Total Rounds Survived##RANK",
+      "to": "Manches survécues##RANK",
+      "references": 1
+    },
+    {
+      "from": "Unlock All Class Slots",
+      "to": "Unlock tous les emplacements de classe",
+      "references": 1
+    },
+    {
+      "from": "Max Unlock Tokens",
+      "to": "Jetons unlock au maximum",
+      "references": 1
+    },
+    {
+      "from": "Max Weapon Stats",
+      "to": "Stats d'armes au maximum",
+      "references": 1
+    },
+    {
+      "from": "Unlock Fresh Start Calling Card",
+      "to": "Unlock carte de visite Nouveau départ",
+      "references": 1
+    },
+    {
+      "from": "Hard Unlock Calling Cards",
+      "to": "Hard unlock des cartes de visite",
+      "references": 1
+    },
+    {
+      "from": "Hard Unlock Entitlements",
+      "to": "Hard unlock des contenus bonus",
+      "references": 1
+    },
+    {
+      "from": "Entitlements Unlocked!",
+      "to": "Contenus bonus débloqués !",
+      "references": 1
+    },
+    {
+      "from": "Hard Unlock Contracts",
+      "to": "Hard unlock des contrats",
+      "references": 1
+    },
+    {
+      "from": "Contracts Unlocked! Join and leave at least 9 public \nmatches to make contract rewards appear in your inventory\n\nCheck force host, search for MP match, and use Launch game button (MP tab)\nto make this process quicker.",
+      "to": "Contrats débloqués ! Rejoignez puis quittez au moins 9 parties publiques\npour faire apparaître les récompenses dans votre inventaire.\n\nForce Host et le bouton de lancement multijoueur peuvent accélérer l'opération.",
+      "references": 1
+    },
+    {
+      "from": "Complete Challenges",
+      "to": "Terminer les défis",
+      "references": 1
+    },
+    {
+      "from": "Complete ZM Daily Challenge",
+      "to": "Terminer le défi quotidien Zombies",
+      "references": 1
+    },
+    {
+      "from": "Complete Hero Challenges",
+      "to": "Terminer les défis de héros",
+      "references": 1
+    },
+    {
+      "from": "Complete Campaign",
+      "to": "Terminer la campagne",
+      "references": 1
+    },
+    {
+      "from": "Max Collectibles",
+      "to": "Objets à collectionner au maximum",
+      "references": 1
+    },
+    {
+      "from": "Max Accolades",
+      "to": "Distinctions au maximum",
+      "references": 1
+    },
+    {
+      "from": "Max Medals",
+      "to": "Médailles au maximum",
+      "references": 1
+    },
+    {
+      "from": "Unlock All Achievements",
+      "to": "Unlock tous les succès",
+      "references": 1
+    },
+    {
+      "from": "Suggest more unlocks",
+      "to": "Proposer d'autres unlocks",
+      "references": 1
+    },
+    {
+      "from": "Host Status: ",
+      "to": "Statut du host : ",
+      "references": 1
+    },
+    {
+      "from": "Enable if you want to always be the host of a public zombies lobby. Enable once before searching for public matches. You should load into lobbies by yourself. Wait for players to join and start the match. Host status should switch to host when loading in.",
+      "to": "Activez avant la recherche pour devenir le host d'un lobby Zombies public. Attendez que les joueurs vous rejoignent, puis lancez la partie. Le statut doit passer à Host au chargement.",
+      "references": 1
+    },
+    {
+      "from": "Start Game",
+      "to": "Lancer la partie",
+      "references": 1
+    },
+    {
+      "from": "Activate in lobby to start the match.",
+      "to": "À activer dans le lobby pour lancer la partie.",
+      "references": 1
+    },
+    {
+      "from": "Online Rank / Gobblegums in Workshop Maps",
+      "to": "Rang en ligne / Gobblegums sur les cartes Workshop",
+      "references": 1
+    },
+    {
+      "from": "Fast Restart Map",
+      "to": "Fast restart de la carte",
+      "references": 1
+    },
+    {
+      "from": "Full Restart Map",
+      "to": "Redémarrage complet de la carte",
+      "references": 1
+    },
+    {
+      "from": "First Gum Free",
+      "to": "Premier Gobblegum gratuit",
+      "references": 1
+    },
+    {
+      "from": "Relive the OG days where the first gobblegum wasn't free!",
+      "to": "Retrouvez l'époque où le premier Gobblegum n'était pas gratuit !",
+      "references": 1
+    },
+    {
+      "from": "Toggle server cheats to run console commands like noclip or godmode",
+      "to": "Active les commandes du serveur comme noclip ou godmode.",
+      "references": 1
+    },
+    {
+      "from": "Inf Ammo",
+      "to": "Munitions infinies",
+      "references": 1
+    },
+    {
+      "from": "No Teddy Bear",
+      "to": "Pas d'ours en peluche",
+      "references": 1
+    },
+    {
+      "from": "Third Person##TP",
+      "to": "Vue à la troisième personne##TP",
+      "references": 1
+    },
+    {
+      "from": "Thorns Mode##DMG",
+      "to": "Mode épines##DMG",
+      "references": 1
+    },
+    {
+      "from": "Nukes Mode##DMG",
+      "to": "Mode bombes##DMG",
+      "references": 1
+    },
+    {
+      "from": "Damage Multiplier",
+      "to": "Multiplicateur de dégâts",
+      "references": 1
+    },
+    {
+      "from": "Map Stat Editor",
+      "to": "Statistiques des cartes",
+      "references": 1
+    },
+    {
+      "from": "Map",
+      "to": "Carte",
+      "references": 1
+    },
+    {
+      "from": "Round##STAT",
+      "to": "Manche##STAT",
+      "references": 1
+    },
+    {
+      "from": "Set Map Stat##MAP",
+      "to": "Appliquer à cette carte##MAP",
+      "references": 1
+    },
+    {
+      "from": "Set all Maps##MAP",
+      "to": "Appliquer à toutes les cartes##MAP",
+      "references": 1
+    },
+    {
+      "from": "Set EE##MAP",
+      "to": "Appliquer le secret##MAP",
+      "references": 1
+    },
+    {
+      "from": "Set All EEs Completed##MAP",
+      "to": "Valider tous les secrets##MAP",
+      "references": 1
+    },
+    {
+      "from": "Set round to 0 to clear all EEs.",
+      "to": "Mettez la manche à 0 pour effacer tous les secrets validés.",
+      "references": 1
+    },
+    {
+      "from": "Gobblegum Editor",
+      "to": "Éditeur de Gobblegums",
+      "references": 1
+    },
+    {
+      "from": "GobblePack Name",
+      "to": "Nom du pack",
+      "references": 1
+    },
+    {
+      "from": "Gobblegum Pack",
+      "to": "Pack de Gobblegums",
+      "references": 1
+    },
+    {
+      "from": "Slot",
+      "to": "Emplacement",
+      "references": 1
+    },
+    {
+      "from": "Set Gobblegum",
+      "to": "Appliquer le Gobblegum",
+      "references": 1
+    },
+    {
+      "from": "Set Pack Name",
+      "to": "Renommer le pack",
+      "references": 1
+    },
+    {
+      "from": "Multiplayer",
+      "to": "Multijoueur",
+      "references": 1
+    },
+    {
+      "from": "Launch MP Game",
+      "to": "Lancer une partie multijoueur",
+      "references": 1
+    },
+    {
+      "from": "Make Custom Game Earn XP",
+      "to": "Gagner de l'XP en partie personnalisée",
+      "references": 1
+    },
+    {
+      "from": "Make sure you enable this AFTER the 10 second countdown!",
+      "to": "Activez cette option APRÈS le compte à rebours de 10 secondes !",
+      "references": 1
+    },
+    {
+      "from": "Specialist Editor",
+      "to": "Éditeur de spécialistes",
+      "references": 1
+    },
+    {
+      "from": "Specialist",
+      "to": "Spécialiste",
+      "references": 1
+    },
+    {
+      "from": "Set##HEADINDEX",
+      "to": "Appliquer##HEADINDEX",
+      "references": 1
+    },
+    {
+      "from": "Successfully set.",
+      "to": "Modification appliquée.",
+      "references": 3
+    },
+    {
+      "from": "Head Index",
+      "to": "Numéro de tête",
+      "references": 1
+    },
+    {
+      "from": "Set##BODYINDEX",
+      "to": "Appliquer##BODYINDEX",
+      "references": 1
+    },
+    {
+      "from": "Body Index",
+      "to": "Numéro du corps",
+      "references": 1
+    },
+    {
+      "from": "Set##CHARCOLOR",
+      "to": "Appliquer##CHARCOLOR",
+      "references": 1
+    },
+    {
+      "from": "Color Index",
+      "to": "Numéro de couleur",
+      "references": 1
+    },
+    {
+      "from": "Showcase Weapon: %s",
+      "to": "Arme exposée : %s",
+      "references": 1
+    },
+    {
+      "from": "Showcase Weapon##SHOWCASE",
+      "to": "Arme exposée##SHOWCASE",
+      "references": 1
+    },
+    {
+      "from": "Showcase Weapon Camo##SHOWCASE",
+      "to": "Camouflage de l'arme exposée##SHOWCASE",
+      "references": 1
+    },
+    {
+      "from": "Set Showcase Weapon",
+      "to": "Appliquer l'arme exposée",
+      "references": 1
+    },
+    {
+      "from": "BlackMarket",
+      "to": "Marché noir",
+      "references": 1
+    },
+    {
+      "from": "Cryptokeys",
+      "to": "Cryptoclés",
+      "references": 1
+    },
+    {
+      "from": "Loot Speed (ms)",
+      "to": "Délai du loot (ms)",
+      "references": 1
+    },
+    {
+      "from": "How long in ms should we wait to call crypto functions again.",
+      "to": "Délai en millisecondes entre deux appels des fonctions de cryptoclés.",
+      "references": 1
+    },
+    {
+      "from": "Crypto Amount ##CRYPTOAMT",
+      "to": "Nombre de cryptoclés ##CRYPTOAMT",
+      "references": 1
+    },
+    {
+      "from": "Loop Cryptokeys",
+      "to": "Farm de cryptoclés",
+      "references": 1
+    },
+    {
+      "from": "Spend Cryptokeys",
+      "to": "Dépenser les cryptoclés",
+      "references": 1
+    },
+    {
+      "from": "Fix Cryptokeys",
+      "to": "Réparer les cryptoclés",
+      "references": 1
+    },
+    {
+      "from": "Use this if your cryptokey amount always shows - after looping.",
+      "to": "À utiliser si le nombre de cryptoclés affiche toujours un tiret après le farm.",
+      "references": 1
+    },
+    {
+      "from": "Burn Duplicates",
+      "to": "Brûler les doublons",
+      "references": 1
+    },
+    {
+      "from": "Gain Gobblegum",
+      "to": "Obtenir un Gobblegum",
+      "references": 1
+    },
+    {
+      "from": "Loop Divinium",
+      "to": "Farm de Divinium",
+      "references": 1
+    },
+    {
+      "from": "Spend Divinium",
+      "to": "Dépenser le Divinium",
+      "references": 1
+    },
+    {
+      "from": "Misc",
+      "to": "Divers",
+      "references": 1
+    },
+    {
+      "from": "No Dupe Supply Drops",
+      "to": "Ravitaillements sans doublons",
+      "references": 1
+    },
+    {
+      "from": "Successfully activated No Dupe Drops.",
+      "to": "Ravitaillements sans doublons activés.",
+      "references": 1
+    },
+    {
+      "from": "Triple Play Supply Drops",
+      "to": "Ravitaillements Triple Play",
+      "references": 1
+    },
+    {
+      "from": "Successfully activated Triple Plays.",
+      "to": "Ravitaillements Triple Play activés.",
+      "references": 1
+    },
+    {
+      "from": "Grant ZC Reward Gobblegums",
+      "to": "Obtenir les Gobblegums de Zombies Chronicles",
+      "references": 1
+    },
+    {
+      "from": "Grants you a free pack of Gobblegums once",
+      "to": "Accorde un pack gratuit de Gobblegums une seule fois.",
+      "references": 1
+    },
+    {
+      "from": "Free Gobblegum Challenge",
+      "to": "Défi Gobblegum gratuit",
+      "references": 1
+    },
+    {
+      "from": "Successfully activated Gobblegum Challenge.\nCheck it out in the contracts section to redeem rewards!",
+      "to": "Défi Gobblegum activé.\nConsultez les contrats pour récupérer les récompenses !",
+      "references": 1
+    },
+    {
+      "from": "Calling Card##BACKGROUND",
+      "to": "Carte de visite##BACKGROUND",
+      "references": 1
+    },
+    {
+      "from": "Unlock Full Game (DLC)",
+      "to": "Unlock du jeu complet (DLC)",
+      "references": 1
+    },
+    {
+      "from": "Make sure the host of the match is using this QOL if you are playing a zombies map you unlocked with this!",
+      "to": "Sur une carte Zombies débloquée avec cette option, le host doit aussi utiliser ce menu QOL.",
+      "references": 1
+    },
+    {
+      "from": "Blackmarket Items",
+      "to": "Objets du marché noir",
+      "references": 1
+    },
+    {
+      "from": "Sets the quantity of every black market item and gobblegum to the quantity you choose.\n\nSpecial supply drops 'unlocked' with this will error out and not give any items (Grand Slam, contract bribes etc). Spending cryptokeys and LD you have will still work as normal.",
+      "to": "Applique la quantité choisie aux objets du marché noir et aux Gobblegums.\n\nLes ravitaillements spéciaux simulés ne donnent aucun objet (Grand Slam, contrats, etc.). Vos cryptoclés et Divinium existants restent utilisables.",
+      "references": 1
+    },
+    {
+      "from": "Entitlements",
+      "to": "Contenus bonus",
+      "references": 1
+    },
+    {
+      "from": "Spoof unlocks all entitlements, such as pre-order content and special events.",
+      "to": "Simule l'unlock des contenus bonus de précommande et des événements spéciaux.",
+      "references": 1
+    },
+    {
+      "from": "Extra Slots",
+      "to": "Emplacements supplémentaires",
+      "references": 1
+    },
+    {
+      "from": "Spoof extra slot ownership. Gives you 10 CAC tabs and allows you\nto download / create more emblems, paintjobs, etc.",
+      "to": "Simule les emplacements supplémentaires : 10 onglets de classes et davantage\nd'emblèmes, de peintures et d'autres contenus à télécharger ou créer.",
+      "references": 1
+    },
+    {
+      "from": "Fileshare Downloading",
+      "to": "Téléchargement de contenus partagés",
+      "references": 1
+    },
+    {
+      "from": "Allows you to download items from the media browser (Emblems, Paintshop variants, etc.). Also spoofs ownership of items downloaded through scropts QOL, allowing you to modify your newly downloaded item!\n\nYou can find an item's download button by going to the media browser in the menus, selecting an item, and then going to the social menu [S].",
+      "to": "Permet de télécharger et modifier des contenus partagés : emblèmes, peintures et variantes.\n\nSélectionnez un objet dans le navigateur de médias, puis ouvrez le menu social [S] pour trouver son bouton de téléchargement.",
+      "references": 1
+    },
+    {
+      "from": "Show Hidden Items",
+      "to": "Afficher les objets cachés",
+      "references": 1
+    },
+    {
+      "from": "Fix Downloaded Items",
+      "to": "Réparer les objets téléchargés",
+      "references": 1
+    },
+    {
+      "from": "Allows you to edit old emblems downloaded through other menus.",
+      "to": "Permet de modifier les anciens emblèmes téléchargés avec d'autres menus.",
+      "references": 1
+    },
+    {
+      "from": "Class Editor",
+      "to": "Classes",
+      "references": 2
+    },
+    {
+      "from": "Open New Class Editor",
+      "to": "Ouvrir le nouvel éditeur de classes",
+      "references": 1
+    },
+    {
+      "from": "Old Class Editor",
+      "to": "Ancien éditeur de classes",
+      "references": 1
+    },
+    {
+      "from": "Class Index",
+      "to": "Numéro de classe",
+      "references": 1
+    },
+    {
+      "from": "Item ID",
+      "to": "ID de l'objet",
+      "references": 1
+    },
+    {
+      "from": "Slot Name",
+      "to": "Emplacement",
+      "references": 1
+    },
+    {
+      "from": "Set Class Item",
+      "to": "Appliquer l'objet de classe",
+      "references": 1
+    },
+    {
+      "from": "Make sure you are in the Create-A-Class menu.",
+      "to": "Ouvrez le menu de création de classe.",
+      "references": 1
+    },
+    {
+      "from": "Weapon Stats",
+      "to": "Stats d'armes",
+      "references": 1
+    },
+    {
+      "from": "Weapon##WEPRANK",
+      "to": "Arme##WEPRANK",
+      "references": 1
+    },
+    {
+      "from": "Set Weapon Stats##WEPRANK",
+      "to": "Appliquer les stats d'arme##WEPRANK",
+      "references": 1
+    },
+    {
+      "from": "Set All Weapon Stats##WEPRANK",
+      "to": "Appliquer à toutes les armes##WEPRANK",
+      "references": 1
+    },
+    {
+      "from": "Purchased##WEP",
+      "to": "Acheté##WEP",
+      "references": 1
+    },
+    {
+      "from": "Kills##WEP",
+      "to": "Éliminations##WEP",
+      "references": 1
+    },
+    {
+      "from": "Level##WEP",
+      "to": "Niveau##WEP",
+      "references": 1
+    },
+    {
+      "from": "Hits##WEP",
+      "to": "Tirs au but##WEP",
+      "references": 1
+    },
+    {
+      "from": "Misses##WEP",
+      "to": "Tirs manqués##WEP",
+      "references": 1
+    },
+    {
+      "from": "Accuracy##WEP",
+      "to": "Précision##WEP",
+      "references": 1
+    },
+    {
+      "from": "Headshots##WEP",
+      "to": "Tirs à la tête##WEP",
+      "references": 1
+    },
+    {
+      "from": "Uses##WEP",
+      "to": "Utilisations##WEP",
+      "references": 1
+    },
+    {
+      "from": "Assists##WEP",
+      "to": "Assistances##WEP",
+      "references": 1
+    },
+    {
+      "from": "Assist Score##WEP",
+      "to": "Score d'assistance##WEP",
+      "references": 1
+    },
+    {
+      "from": "Challenges_tu##WEP",
+      "to": "Défis TU##WEP",
+      "references": 1
+    },
+    {
+      "from": "Destroyed Aircraft##WEP",
+      "to": "Aéronefs détruits##WEP",
+      "references": 1
+    },
+    {
+      "from": "Destroyed Aircraft Under 20s##WEP",
+      "to": "Aéronefs détruits en moins de 20 s##WEP",
+      "references": 1
+    },
+    {
+      "from": "Destroy 2 Killstreaks Rapidly##WEP",
+      "to": "Détruire rapidement 2 séries de points##WEP",
+      "references": 1
+    },
+    {
+      "from": "Destroy 5 Killstreak Vehicle##WEP",
+      "to": "Détruire 5 véhicules de série de points##WEP",
+      "references": 1
+    },
+    {
+      "from": "Destroy AiTank or Setinel##WEP",
+      "to": "Détruire un tank IA ou une Sentinelle##WEP",
+      "references": 1
+    },
+    {
+      "from": "Destroy Turret##WEP",
+      "to": "Tourelles détruites##WEP",
+      "references": 1
+    },
+    {
+      "from": "Direct Hit Kills##WEP",
+      "to": "Éliminations par impact direct##WEP",
+      "references": 1
+    },
+    {
+      "from": "Bloodthirsty##WEP",
+      "to": "Sanguinaire##WEP",
+      "references": 1
+    },
+    {
+      "from": "Kills While Active##WEP",
+      "to": "Éliminations pendant l'activation##WEP",
+      "references": 1
+    },
+    {
+      "from": "One Shots Shotgun##WEP",
+      "to": "Éliminations en un tir de fusil à pompe##WEP",
+      "references": 1
+    },
+    {
+      "from": "One Shots Snipers##WEP",
+      "to": "Éliminations en un tir de sniper##WEP",
+      "references": 1
+    },
+    {
+      "from": "Kills While Injured##WEP",
+      "to": "Éliminations en étant blessé##WEP",
+      "references": 1
+    },
+    {
+      "from": "Kill Enemy W Their Weapon##WEP",
+      "to": "Éliminations avec l'arme de l'adversaire##WEP",
+      "references": 1
+    },
+    {
+      "from": "Loaded Kills##WEP",
+      "to": "Éliminations chargé##WEP",
+      "references": 1
+    },
+    {
+      "from": "Longshots##WEP",
+      "to": "Tirs à longue distance##WEP",
+      "references": 1
+    },
+    {
+      "from": "No Attachment Kills##WEP",
+      "to": "Éliminations sans accessoire##WEP",
+      "references": 1
+    },
+    {
+      "from": "No Perk Kills##WEP",
+      "to": "Éliminations sans atout##WEP",
+      "references": 1
+    },
+    {
+      "from": "Revenge Kills##WEP",
+      "to": "Vengeances##WEP",
+      "references": 1
+    },
+    {
+      "from": "Blackhat Hacks##WEP",
+      "to": "Piratages au Black Hat##WEP",
+      "references": 1
+    },
+    {
+      "from": "EMP Destroys##WEP",
+      "to": "Destructions par IEM##WEP",
+      "references": 1
+    },
+    {
+      "from": "Stun Kills##WEP",
+      "to": "Éliminations d'ennemis étourdis##WEP",
+      "references": 1
+    },
+    {
+      "from": "Blind Kills##WEP",
+      "to": "Éliminations d'ennemis aveuglés##WEP",
+      "references": 1
+    },
+    {
+      "from": "Captures with Smoke##WEP",
+      "to": "Captures sous fumigène##WEP",
+      "references": 1
+    },
+    {
+      "from": "Trophy System Defends##WEP",
+      "to": "Défenses au système Trophy##WEP",
+      "references": 1
+    },
+    {
+      "from": "Tools",
+      "to": "Outils",
+      "references": 1
+    },
+    {
+      "from": "Send##DVAR",
+      "to": "Appliquer##DVAR",
+      "references": 1
+    },
+    {
+      "from": "Insert a Valid Dvar.",
+      "to": "Saisissez un Dvar valide.",
+      "references": 1
+    },
+    {
+      "from": "Send##CBUF",
+      "to": "Appliquer##CBUF",
+      "references": 1
+    },
+    {
+      "from": "NAME",
+      "to": "PSEUDO",
+      "references": 1
+    },
+    {
+      "from": "Set##CLAN",
+      "to": "Appliquer##CLAN",
+      "references": 1
+    },
+    {
+      "from": "Colored UI",
+      "to": "Couleur personnalisée",
+      "references": 1
+    },
+    {
+      "from": "Tracers",
+      "to": "Traçantes",
+      "references": 1
+    },
+    {
+      "from": "All Tracers",
+      "to": "Toutes les traçantes",
+      "references": 1
+    },
+    {
+      "from": "Steam Friends Only",
+      "to": "Amis Steam uniquement",
+      "references": 1
+    },
+    {
+      "from": "Enabling this drops all info requests and responses from players who are not on your steam friends list.",
+      "to": "Ignore les demandes et réponses d'information des joueurs absents de votre liste d'amis Steam.",
+      "references": 1
+    },
+    {
+      "from": "Apply Hooks",
+      "to": "Appliquer les hooks",
+      "references": 1
+    },
+    {
+      "from": "Back to Main Menu",
+      "to": "Retour au menu principal",
+      "references": 1
+    },
+    {
+      "from": "Menu Keybind",
+      "to": "Touche du menu",
+      "references": 1
+    },
+    {
+      "from": "Emblems",
+      "to": "Emblèmes",
+      "references": 1
+    },
+    {
+      "from": "Servers",
+      "to": "Serveurs",
+      "references": 3
+    },
+    {
+      "from": "Friends",
+      "to": "Amis",
+      "references": 1
+    },
+    {
+      "from": "Info",
+      "to": "Infos",
+      "references": 2
+    },
+    {
+      "from": "Screenshot Title",
+      "to": "Titre de la capture",
+      "references": 1
+    },
+    {
+      "from": "Screenshot Description",
+      "to": "Description de la capture",
+      "references": 1
+    },
+    {
+      "from": "Class-Set:",
+      "to": "Ensemble de classes :",
+      "references": 1
+    },
+    {
+      "from": "Enter Set Name...",
+      "to": "Nom de l'ensemble...",
+      "references": 1
+    },
+    {
+      "from": "Update Set Name##CLASSSETNAME",
+      "to": "Renommer l'ensemble##CLASSSETNAME",
+      "references": 1
+    },
+    {
+      "from": "Class Index:",
+      "to": "Numéro de classe :",
+      "references": 1
+    },
+    {
+      "from": "Input Class Name...",
+      "to": "Nom de la classe...",
+      "references": 1
+    },
+    {
+      "from": "Update Class Name##CLASSNAME",
+      "to": "Renommer la classe##CLASSNAME",
+      "references": 1
+    },
+    {
+      "from": "500 Class Items##",
+      "to": "500 objets de classe##",
+      "references": 1
+    },
+    {
+      "from": "Make sure you are in your selected class in CAC before clicking this button.",
+      "to": "Ouvrez la classe choisie dans le menu de création de classe avant de cliquer.",
+      "references": 1
+    },
+    {
+      "from": "Combo Box Type",
+      "to": "Type d'objet",
+      "references": 1
+    },
+    {
+      "from": "Primaries",
+      "to": "Armes principales",
+      "references": 1
+    },
+    {
+      "from": "Secondaries",
+      "to": "Armes secondaires",
+      "references": 1
+    },
+    {
+      "from": "Offhands",
+      "to": "Équipements",
+      "references": 1
+    },
+    {
+      "from": "Perks & Wildcards",
+      "to": "Atouts et jokers",
+      "references": 1
+    },
+    {
+      "from": "Friends List",
+      "to": "Liste d'amis",
+      "references": 1
+    },
+    {
+      "from": "Refresh##FriendsList",
+      "to": "Actualiser##FriendsList",
+      "references": 1
+    },
+    {
+      "from": "Auto refresh",
+      "to": "Actualisation automatique",
+      "references": 1
+    },
+    {
+      "from": "Cached friends: %zu",
+      "to": "Amis en cache : %zu",
+      "references": 1
+    },
+    {
+      "from": "Name",
+      "to": "Nom",
+      "references": 1
+    },
+    {
+      "from": "Status",
+      "to": "Statut",
+      "references": 1
+    },
+    {
+      "from": "Join##",
+      "to": "Rejoindre##",
+      "references": 1
+    },
+    {
+      "from": "Invite##",
+      "to": "Inviter##",
+      "references": 1
+    },
+    {
+      "from": "Empty",
+      "to": "Vides",
+      "references": 1
+    },
+    {
+      "from": "Full",
+      "to": "Pleins",
+      "references": 1
+    },
+    {
+      "from": "< Half",
+      "to": "Moins de la moitié",
+      "references": 1
+    },
+    {
+      "from": "Fetch",
+      "to": "Actualiser",
+      "references": 1
+    },
+    {
+      "from": "Clear List",
+      "to": "Vider la liste",
+      "references": 1
+    },
+    {
+      "from": "Total Servers : %zu",
+      "to": "Serveurs : %zu",
+      "references": 1
+    },
+    {
+      "from": "Server",
+      "to": "Serveur",
+      "references": 1
+    },
+    {
+      "from": "Game Type",
+      "to": "Mode de jeu",
+      "references": 1
+    },
+    {
+      "from": "Clients",
+      "to": "Joueurs",
+      "references": 1
+    },
+    {
+      "from": "Join Server",
+      "to": "Rejoindre le serveur",
+      "references": 1
+    },
+    {
+      "from": "Copy XUID",
+      "to": "Copier le XUID",
+      "references": 1
+    },
+    {
+      "from": "Version: %s",
+      "to": "[ZXG] T7 DivinX\n\nVersion : 1.0.0\nDéveloppée par STARZISMIK\n\nSite ZXG : https://modtools.fr\n\nBase du menu : Scropts-QOL %s\nCrédits d'origine : Scroptss, Serious et InsaneCallum",
+      "references": 1
+    }
+  ]
+}

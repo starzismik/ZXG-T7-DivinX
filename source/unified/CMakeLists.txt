@@ -1,0 +1,28 @@
+cmake_minimum_required(VERSION 3.25)
+project(DivinXUnified LANGUAGES C CXX ASM_MASM)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")
+get_filename_component(ROOT "${CMAKE_CURRENT_SOURCE_DIR}/.." ABSOLUTE)
+add_library(divinx SHARED qol/main.cpp qol/common.cpp qol/hooks.cpp qol/host.cpp qol/Players.cpp qol/servers.cpp qol/spoof.asm
+qol/imgui/imgui.cpp qol/imgui/imgui_draw.cpp qol/imgui/imgui_widgets.cpp qol/imgui/imgui_tables.cpp qol/imgui/imgui_impl_dx11.cpp qol/imgui/imgui_impl_win32.cpp qol/imgui/imgui_stdlib.cpp qol/imgui/imgui_texteditor.cpp
+native/runtime.cpp native/features.cpp native/qol-bridge.cpp native/Arxan.cpp
+"${ROOT}/third_party/minhook/src/buffer.c" "${ROOT}/third_party/minhook/src/hook.c" "${ROOT}/third_party/minhook/src/trampoline.c" "${ROOT}/third_party/minhook/src/hde/hde64.c")
+target_include_directories(divinx PRIVATE "${ROOT}" native qol "${ROOT}/third_party/t7patch" "${ROOT}/third_party/minhook/include")
+target_compile_definitions(divinx PRIVATE WIN32_LEAN_AND_MEAN NOMINMAX _CRT_SECURE_NO_WARNINGS _CRT_NON_CONFORMING_SWPRINTFS)
+target_compile_options(divinx PRIVATE $<$<COMPILE_LANGUAGE:CXX>:/utf-8>)
+target_link_libraries(divinx PRIVATE advapi32 bcrypt d3d11 dxgi d3dcompiler "${CMAKE_CURRENT_SOURCE_DIR}/qol/detours/detours.lib")
+set_target_properties(divinx PROPERTIES OUTPUT_NAME "ZXG DivinX")
+target_link_options(divinx PRIVATE "/MAP:${CMAKE_CURRENT_BINARY_DIR}/divinx.map")
+add_executable(pause_checks EXCLUDE_FROM_ALL "${ROOT}/tests/PauseChecks.cpp")
+target_include_directories(pause_checks PRIVATE native)
+
+option(DIVINIUM_MODULE "Build simplified Divinium module" OFF)
+if(DIVINIUM_MODULE)
+ target_compile_definitions(divinx PRIVATE ZXG_DIVINIUM)
+ target_link_libraries(divinx PRIVATE windowscodecs ole32)
+ set_target_properties(divinx PROPERTIES OUTPUT_NAME "ZXG Divinium")
+endif()
+add_executable(divinium_target_checks EXCLUDE_FROM_ALL "${ROOT}/tests/DiviniumTargetChecks.cpp")
+target_compile_options(divinium_target_checks PRIVATE /utf-8 /UNDEBUG)
+add_executable(security_hook_checks EXCLUDE_FROM_ALL "${ROOT}/tests/SecurityHookChecks.cpp")
+target_compile_options(security_hook_checks PRIVATE /utf-8 /UNDEBUG)

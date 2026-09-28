@@ -12,14 +12,14 @@ Retrouvez vos modules, vos réglages de session et vos diagnostics dans une inte
 
 <br>
 
-[![Version préparée](https://img.shields.io/badge/VERSION_PRÉPARÉE-1.0.0-2f80c9?style=for-the-badge)](#publication-en-préparation)
-[![Disponibilité](https://img.shields.io/badge/RELEASE-EN_PRÉPARATION-555555?style=for-the-badge)](#publication-en-préparation)
+[![Version](https://img.shields.io/badge/VERSION-1.0.0-2f80c9?style=for-the-badge)](https://github.com/starzismik/ZXG-T7-DivinX/releases/tag/v1.0.0)
+[![Téléchargements](https://img.shields.io/github/downloads/starzismik/ZXG-T7-DivinX/total?style=for-the-badge&color=2f80c9&label=TÉLÉCHARGEMENTS)](https://github.com/starzismik/ZXG-T7-DivinX/releases)
 [![Windows](https://img.shields.io/badge/Windows-64_bits-2f80c9?style=for-the-badge)](#configuration)
 [![Discord](https://img.shields.io/badge/Discord-ModTools_France-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/4cb3ENTXd4)
 
 <br>
 
-[**Disponibilité du téléchargement**](#publication-en-préparation)
+[**Télécharger la dernière version**](https://github.com/starzismik/ZXG-T7-DivinX/releases/latest)
 &nbsp;&nbsp;•&nbsp;&nbsp;
 [**Site officiel**](https://www.zxg.fr)
 &nbsp;&nbsp;•&nbsp;&nbsp;
@@ -33,9 +33,11 @@ Retrouvez vos modules, vos réglages de session et vos diagnostics dans une inte
 
 ---
 
-## Publication en préparation
+## Installation
 
-Le téléchargement n'est pas encore disponible. Le conditionnement de l'application, la validation réseau des mises à jour et les conditions de redistribution des composants tiers restent à finaliser avant la première release.
+Téléchargez [ZXG.T7.DivinX.1.0.0.zip](https://github.com/starzismik/ZXG-T7-DivinX/releases/download/v1.0.0/ZXG.T7.DivinX.1.0.0.zip), extrayez l'archive puis ouvrez **[ZXG] T7 DivinX.exe**.
+
+Le lanceur, .NET, les deux modules, l'illustration et les notices sont embarqués dans un seul exécutable. Les dépendances sont extraites automatiquement au lancement. Aucun journal ni réglage personnel n'est distribué. L'exécutable n'est pas signé numériquement.
 
 ## Présentation
 
@@ -54,12 +56,15 @@ Les modules sont alternatifs : redémarrer le jeu pour changer de module. Toutes
 ## Configuration
 
 - Windows 64 bits.
+- Bibliothèques Microsoft Visual C++ x64 compatibles avec les modules natifs.
 - Steam et Call of Duty: Black Ops III PC.
 - Un build du jeu compatible avec les modules ; une mise à jour du jeu peut nécessiter une adaptation.
 
 ## Mises à jour
 
-Le contrôle au démarrage est implémenté dans le lanceur, mais sa connexion au service distant et sa validation réseau restent à terminer avant distribution. Aucune installation automatique n'est annoncée.
+Le contrôle au démarrage est connecté au manifeste public de ce dépôt. Une version supérieure bloque le lanceur ; une erreur réseau bloque également l'accès, avec possibilité de réessayer. Le téléchargement ouvre le navigateur, sans installation automatique. Pas de vérification périodique pendant une session déjà ouverte.
+
+Compilation réussie, onze vérifications du manifeste et des versions réussies, accès réseau sans redirection et lancement de l'EXE vérifiés. Les tests ne couvrent pas toutes les fonctionnalités du jeu ni une session prolongée.
 
 ---
 
@@ -91,7 +96,7 @@ Bases et travaux tiers : Scroptss / Scropts-QOL, Serious, InsaneCallum, shiverso
 
 Personnalisé par **STARZISMIK**
 
-**[ZXG] T7 DivinX — Version préparée 1.0.0**
+**[ZXG] T7 DivinX — Version 1.0.0**
 
 © 2026 STARZISMIK — personnalisation et contributions. Droits des composants tiers conservés.
 
