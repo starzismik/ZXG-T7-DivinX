@@ -637,7 +637,7 @@ namespace hooks {
 
 		bool hkUI_IsRenderingImmediately() {
 
-			return true;
+			return UI_IsRenderingImmediately();
 
 		}
 
@@ -1295,8 +1295,6 @@ namespace hooks {
 		MH_CreateHook((LPVOID)(bo3::address(0x22C9650)), functions::hkflsomeWeirdCharacterIndex, (LPVOID*)&flsomeWeirdCharacterIndex);
 		MH_CreateHook((LPVOID)(bo3::address(0x1EAAD60)), functions::hkUserHasLicenseForApp, (LPVOID*)&UserHasLicenseForApp);
 		MH_CreateHook((LPVOID)(bo3::address(0x1980980)), functions::hkG_Damage, (LPVOID*)&G_Damage);
-		MH_CreateHook((LPVOID)(bo3::address(0x60F920)), functions::hkDraw2D, (LPVOID*)&CG_Draw2D);
-		MH_CreateHook((LPVOID)(bo3::address(0x1189E10)), functions::hkCG_BulletHitEvent_Internal, (LPVOID*)&CG_BulletHitEvent_Internal); 
 		MH_CreateHook((LPVOID)(bo3::address(0x1D10840)), functions::hkR_ConvertColorToBytes, (LPVOID*)&R_ConvertColorToBytes);
 		MH_CreateHook((LPVOID)(bo3::address(0x268CC60)), functions::hkUI_IsRenderingImmediately, (LPVOID*)&UI_IsRenderingImmediately);
 		MH_CreateHook((LPVOID)(bo3::address(0x1DFCC60)), functions::hkLiveInventory_GetItemQuantity, (LPVOID*)&LiveInventory_GetItemQuantity);
@@ -1332,8 +1330,6 @@ namespace hooks {
 		MH_RemoveHook((LPVOID)(bo3::address(0x22C9650)));		//hkflsomeWeirdCharacterIndex
 		MH_RemoveHook((LPVOID)(bo3::address(0x1EAAD60)));		//hkUserHasLicenseForApp
 		MH_RemoveHook((LPVOID)(bo3::address(0x1980980)));		//hkG_Damage
-		MH_RemoveHook((LPVOID)(bo3::address(0x60F920)));		//hkCG_Draw2D
-		MH_RemoveHook((LPVOID)(bo3::address(0x1189E10)));		//hkCG_BulletHitEvent_Internal
 		MH_RemoveHook((LPVOID)(bo3::address(0x1D10840)));		//hkR_ConvertColorToBytes
 		MH_RemoveHook((LPVOID)(bo3::address(0x268CC60)));		//hkUI_IsRenderingImmediately
 		MH_RemoveHook((LPVOID)(bo3::address(0x1DFCC60)));		//hkLiveInventory_GetItemQuantity
@@ -1354,23 +1350,14 @@ namespace hooks {
 	}
 
 
-	void onFrame() {
+	void initializeUnifiedHooks() {
+        initialize_dispatch();
+        applyPatches();
+        servers::Install();
+    }
+    void onFrame() {
 
 		static bool inGameBoolean = false; // Tracks whether hooks are currently enabled
-		static bool dispatch_enabled = false;
-		static bool crc_enabled = false;
-
-		if (!crc_enabled && *(__int64*)(bo3::address(0x1686E948))) {
-			// Integrity adaptation is installed once by the shared ZXG runtime.
-			crc_enabled = true;
-
-			initialize_dispatch();
-			applyPatches();
-			servers::Install();
-			dispatch_enabled = true;
-			ImGui::InsertNotification({ ImGuiToastType::Success, 3000, "Patches Enabled" });
-		}
-
 		if (is_match_loaded()) {
 
 			if (cgArray > 0) {

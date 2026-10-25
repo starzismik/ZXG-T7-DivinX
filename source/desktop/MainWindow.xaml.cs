@@ -21,18 +21,27 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        Width = Math.Min(Width, SystemParameters.WorkArea.Width - 32);
+        Height = Math.Min(Height, SystemParameters.WorkArea.Height - 32);
 
         try { if(File.ReadAllText(Path.Combine(AppContext.BaseDirectory,"selected-module.txt")).Trim()=="1")RuntimeMode.SelectedIndex=1; } catch(IOException) { }
         LogPathValue.Text = _logFile;
-        Log("[ZXG] T7 DivinX 1.0.0 : application initialisée.");
+        Log("[ZXG] T7 DivinX 1.0.2 : application initialisée.");
         _monitor.Tick += async (_, _) => await MonitorAsync();
         Loaded += async (_, _) => await StartAfterUpdateCheckAsync();
         Closed += (_, _) => { _monitor.Stop(); _shutdown.Cancel(); };
     }
 
+    public sealed record RecentLogEntry(string Time, string Message);
+
     private void Log(string message)
     {
         string line = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] {message}";
+        string summary = message.StartsWith("Installation Steam : ", StringComparison.Ordinal)
+            ? "Installation de Black Ops III détectée." : message;
+        RecentActivityList.Items.Add(new RecentLogEntry(DateTime.Now.ToString("HH:mm:ss"), summary));
+        if (RecentActivityList.Items.Count > 100) RecentActivityList.Items.RemoveAt(0);
+        RecentActivityList.ScrollIntoView(RecentActivityList.Items[^1]);
         ActivityList.Items.Add(line);
         if (ActivityList.Items.Count > 300) ActivityList.Items.RemoveAt(0);
         ActivityList.ScrollIntoView(ActivityList.Items[^1]);

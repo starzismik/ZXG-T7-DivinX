@@ -59,8 +59,7 @@ public partial class MainWindow
         var game=_game;var selectedModule=SelectedModule;_busy=true;_attempted=true;Render();
         try
         {
-            var moduleDirectory = Path.GetDirectoryName(typeof(App).Assembly.Location)!;
-            var result=await Task.Run(()=>GuardServices.LoadQol(game,Path.Combine(moduleDirectory,"plugins",selectedModule)));
+            var result=await Task.Run(()=>GuardServices.LoadQol(game,Path.Combine(AppContext.BaseDirectory,"plugins",selectedModule)));
             _qolLoaded=result.Loaded;Log(result.Message);OperationValue.Text=result.Message;
             if(result.Loaded&&MinimizeAfterLoad.IsChecked==true)WindowState=WindowState.Minimized;
         }

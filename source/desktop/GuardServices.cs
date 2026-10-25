@@ -19,10 +19,10 @@ internal sealed record LoadResult(bool Loaded, string Message);
 internal static class GuardServices
 {
     internal const string DiviniumName = "ZXG Divinium.dll";
-    internal const string DiviniumHash = "A8C80EC8EDF66A5366B8D8D3114E4F0B3257179BC03A90A049A9875061B86ED0";
+    internal const string DiviniumHash = "C3D3ACF97087CA2892C3DD38DB423388436D209F2BC541F582A88A4A92CDC33E";
     internal static bool HasSelectedModule(GameInstance game,string module) => HasModule(game,module);
     internal const string QolName = "ZXG DivinX.dll";
-    internal const string QolHash = "6EC15569828564FBC7C57EF27F9F23FC166E499B19A9F6526730712963C71E43";
+    internal const string QolHash = "F4A6421000D99234E4742AF78BA9B15A4D741DDF20CFFF66C49F22446CB8059B";
     internal const string RuntimeName = "ZXG T7 Guard Runtime.dll";
     internal const string ExpectedHash = "51CA63BBC660E0826943C60DA67606F6BCB4B3B519528B5E0548C68C9423A323";
 
@@ -193,19 +193,6 @@ internal static class GuardServices
         return Regex.IsMatch(ini, pattern) ? Regex.Replace(ini, pattern, _ => section) : ini.TrimEnd() + "\n\n" + section;
     }
 
-    private static void PrepareQolLayout(GameInstance game)
-    {
-        using var process = Process.GetProcessById(game.Pid);
-        if (process.MainWindowHandle == 0 || !GetClientRect(process.MainWindowHandle, out var rect))
-            throw new InvalidOperationException("Dimensions de la fenêtre BO3 indisponibles ; réessayez sur son écran de titre.");
-        string path = Path.Combine(Path.GetDirectoryName(game.Path)!, "imgui.ini");
-        string original = File.Exists(path) ? File.ReadAllText(path) : "";
-        string centered = CenterQolLayout(original, rect.Right - rect.Left, rect.Bottom - rect.Top);
-        if (original == centered) return;
-        if (File.Exists(path)) File.Copy(path, path + ".divinx-backup-" + DateTime.UtcNow.ToString("yyyyMMddHHmmssfffffff"));
-        File.WriteAllText(path, centered, new UTF8Encoding(false));
-    }
-
     [StructLayout(LayoutKind.Sequential)] private struct ClientRect { public int Left, Top, Right, Bottom; }
     [DllImport("user32.dll")] private static extern bool GetClientRect(nint window, out ClientRect rect);
 
@@ -234,7 +221,7 @@ internal static class GuardServices
             if (!IsSameProcess(game)) return new(false, "Le processus a changé ; chargement annulé.");
             if (moduleName == RuntimeName && HasQol(game) || (moduleName == QolName || moduleName == DiviniumName) && (HasRuntime(game) || HasQol(game) && !HasModule(game,moduleName))) throw new InvalidOperationException("Un autre mode est déjà chargé. Redémarrez BO3.");
             if (HasModule(game,moduleName)) return new(true, "Runtime déjà présent : reconnexion, sans rechargement.");
-            if (moduleName == QolName || moduleName == DiviniumName) PrepareQolLayout(game);
+            // UI layout is managed in memory by the overlay.
             if (!File.Exists(dll)) throw new FileNotFoundException("Runtime intégré introuvable.", dll);
             string marker = Path.Combine(AppContext.BaseDirectory, $"load-{game.Pid}-{game.Started}.pending");
             if (File.Exists(marker)) return new(false, "Une tentative précédente reste incertaine. Redémarrez BO3 avant de réessayer.");

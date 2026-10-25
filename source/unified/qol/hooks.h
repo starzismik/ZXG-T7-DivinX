@@ -8,6 +8,7 @@ namespace hooks {
 
     void applyPatches();
 	void initExceptionHandler();
+    void initializeUnifiedHooks();
     void onFrame();
     void initPointerSwaps();
 

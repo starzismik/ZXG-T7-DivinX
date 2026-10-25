@@ -205,6 +205,8 @@ void InitImGui()
 {
 	ImGui::CreateContext();
 	ImGuiIO& io = ImGui::GetIO();
+    io.IniFilename = nullptr;
+    io.LogFilename = nullptr;
 
 
 	io.ConfigFlags |= ImGuiConfigFlags_NoMouseCursorChange;
@@ -7425,9 +7427,9 @@ void draw() {
 
 			}
 
-			ImGui::Checkbox("Traçantes", &bTracers);
+			ImGui::TextDisabled("Traçantes : désactivées pour stabilité");
 			ImGui::SameLine();
-			ImGui::Checkbox("Toutes les traçantes", &bAllTracers);
+			// Tracer hooks are disabled.
 
 			ImGui::Checkbox("Amis Steam uniquement", &bFriendsOnly);
 
@@ -7899,6 +7901,7 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 {
 	if (!init)
 	{
+        overlayStartupTrace("renderer: entered Present; acquiring device");
 		if (FAILED(pSwapChain->GetDevice(__uuidof(ID3D11Device), reinterpret_cast<void**>(&pDevice))))
 		{
 			return oPresent(pSwapChain, SyncInterval, Flags);
@@ -7997,7 +8000,7 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 
 		draw();
 		zxg::state().menuOpen = open; if(open) zxg::state().drawnFrames++;
-		drawTracers();
+        // CG_Draw2D remains untouched.
 
 		if (bNotifications)
 		{
@@ -8042,6 +8045,9 @@ void QolStart() {
     overlayStartupTrace("overlay: preparing dependencies");
 #ifndef ZXG_DIVINIUM
     hooks::initPointerSwaps();
+    overlayStartupTrace("overlay: installing unified hooks off render thread");
+    hooks::initializeUnifiedHooks();
+    overlayStartupTrace("overlay: unified hooks installed");
 #endif
     overlayStartupTrace("overlay: publishing render callbacks");
     initDirectXPresentPointerSwap();

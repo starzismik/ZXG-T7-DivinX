@@ -1,4 +1,4 @@
-# [ZXG] T7 DivinX — 1.0.0
+# [ZXG] T7 DivinX — 1.0.2
 
 Personnalisation : STARZISMIK. Bases : Scroptss / Scropts-QOL, Serious,
 InsaneCallum, shiversoftdev et contributeurs amont. Les droits tiers sont conservés.

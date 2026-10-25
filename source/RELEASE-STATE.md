@@ -1,21 +1,15 @@
-# Sources de la release 1.0.0
+# Sources de la release 1.0.2
 
-Cette copie provient des sources réconciliées `actions-source`, et non de l'ancien
-dépôt ZXG-T7-Guard. Les documents d'audit présents sont historiques.
+Interface Windows gris foncé compacte validée par STARZISMIK : 1160 × 740,
+icônes Lucide, panneau MODMENU, onglet MODULE et journal récent avec heure et message.
+La compilation WPF et le démarrage du paquet autonome ont été vérifiés.
+Les ajustements natifs antérieurs sont inclus ; leur stabilité en jeu reste à tester.
 
-Changements de publication : URL publique renseignée dans UpdateGate, distribution
-.NET autonome en fichier unique et résolution des modules dans le dossier extrait.
-Les deux DLL distribuées sont les compilations validées fournies par le responsable,
-vérifiées contre les empreintes de GuardServices.cs ; leur code n'a pas été modifié
-durant cette étape de conditionnement.
+Le ZIP contient un seul EXE avec .NET 8.0.19 et les deux modules embarqués.
+Le lanceur extrait le paquet dans %LOCALAPPDATA%/ZXG/T7DivinX/1.0.2-<empreinte>.
+Ce cache et les journaux locaux sont conservés après fermeture.
+Aucun journal, mot de passe ni réglage personnel n'est inclus dans la distribution.
+Les modules distribués sont vérifiés contre les empreintes de GuardServices.cs.
+Le manifeste de mise à jour conserve l'adresse publique du dépôt.
 
-L'icône statue couronnée, le titre et les onglets Accueil / Modules / Journal / Infos
-sont conservés. Les réglages de session se trouvent dans Accueil. L'intégration T7
-Patch reste partielle. Consultez PUBLICATION.md et les notices à la racine.
-
-Pour reconstruire les modules et publier le lanceur : `publish-release.ps1`.
-Visual Studio 2022 avec C++, CMake et le SDK .NET 8 sont requis. Les empreintes
-peuvent varier à la recompilation ; build-current.ps1 recalcule celles des modules.
-
-Le paquet publié inclut les notices dans l'EXE. GitHub fournit également ces notices
-dans le dossier notices, sans avoir à lancer l'application.
+Le lanceur autonome se trouve dans tools/StandaloneLauncher.cs.
