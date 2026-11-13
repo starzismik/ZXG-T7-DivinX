@@ -12,7 +12,7 @@ Retrouvez vos modules, vos réglages de session et vos diagnostics dans une inte
 
 <br>
 
-[![Version](https://img.shields.io/badge/VERSION-1.0.2-2f80c9?style=for-the-badge)](https://github.com/starzismik/ZXG-T7-DivinX/releases/tag/v1.0.2)
+[![Version](https://img.shields.io/badge/VERSION-1.0.3-2f80c9?style=for-the-badge)](https://github.com/starzismik/ZXG-T7-DivinX/releases/tag/v1.0.3)
 [![Téléchargements](https://img.shields.io/github/downloads/starzismik/ZXG-T7-DivinX/total?style=for-the-badge&color=2f80c9&label=T%C3%89L%C3%89CHARGEMENTS&cacheSeconds=300&v=3)](https://github.com/starzismik/ZXG-T7-DivinX/releases)
 [![Windows](https://img.shields.io/badge/Windows-64_bits-2f80c9?style=for-the-badge)](#configuration)
 [![Discord](https://img.shields.io/badge/Discord-ModTools_France-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/4cb3ENTXd4)
@@ -35,7 +35,7 @@ Retrouvez vos modules, vos réglages de session et vos diagnostics dans une inte
 
 ## Installation
 
-Téléchargez [ZXG.T7.DivinX.1.0.2.zip](https://github.com/starzismik/ZXG-T7-DivinX/releases/download/v1.0.2/ZXG.T7.DivinX.1.0.2.zip), extrayez l'archive puis ouvrez **[ZXG] T7 DivinX.exe**.
+Téléchargez [ZXG.T7.DivinX.1.0.3.zip](https://github.com/starzismik/ZXG-T7-DivinX/releases/download/v1.0.3/ZXG.T7.DivinX.1.0.3.zip), extrayez l'archive puis ouvrez **[ZXG] T7 DivinX.exe**.
 
 Le lanceur, .NET, les deux modules, l'illustration et les notices sont embarqués dans un seul exécutable. Les dépendances sont extraites automatiquement au lancement. Aucun journal ni réglage personnel n'est distribué. L'exécutable n'est pas signé numériquement.
 
@@ -96,7 +96,7 @@ Bases et travaux tiers : Scroptss / Scropts-QOL, Serious, InsaneCallum, shiverso
 
 Personnalisé par **STARZISMIK**
 
-**[ZXG] T7 DivinX — Version 1.0.2**
+**[ZXG] T7 DivinX — Version 1.0.3**
 
 © 2026 STARZISMIK — personnalisation et contributions. Droits des composants tiers conservés.
 

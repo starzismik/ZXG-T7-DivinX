@@ -7,7 +7,7 @@ namespace ZXGT7Guard;
 
 public partial class MainWindow : Window
 {
-    private readonly DispatcherTimer _monitor = new() { Interval = TimeSpan.FromSeconds(2) };
+    private readonly DispatcherTimer _monitor = new() { Interval = TimeSpan.FromSeconds(1) };
     private readonly CancellationTokenSource _shutdown = new();
     private readonly string _logFile = Path.Combine(AppContext.BaseDirectory, "logs", $"diagnostic-{DateTime.Now:yyyyMMdd-HHmmss}-{Environment.ProcessId}.log");
     private GameInstance? _game;
@@ -21,12 +21,14 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        // Automatic loading is opt-in for this session, never restored from an earlier run.
+        AutoLoad.IsChecked = false;
         Width = Math.Min(Width, SystemParameters.WorkArea.Width - 32);
         Height = Math.Min(Height, SystemParameters.WorkArea.Height - 32);
 
         try { if(File.ReadAllText(Path.Combine(AppContext.BaseDirectory,"selected-module.txt")).Trim()=="1")RuntimeMode.SelectedIndex=1; } catch(IOException) { }
         LogPathValue.Text = _logFile;
-        Log("[ZXG] T7 DivinX 1.0.2 : application initialisée.");
+        Log("[ZXG] T7 DivinX 1.0.3 : application initialisée.");
         _monitor.Tick += async (_, _) => await MonitorAsync();
         Loaded += async (_, _) => await StartAfterUpdateCheckAsync();
         Closed += (_, _) => { _monitor.Stop(); _shutdown.Cancel(); };
@@ -134,9 +136,10 @@ public partial class MainWindow : Window
         IpcValue.Text = _runtime is null ? "Déconnectée" : "Connectée";
         RuntimeVersion.Text = _runtime is null ? "Runtime non confirmé" : $"Runtime {_runtime.Version} · PID {_runtime.Pid}";
         BusyBar.Visibility = _busy ? Visibility.Visible : Visibility.Collapsed;
-        PrimaryActionLabel.Text = !detected ? "Lancer BO3" : _busy ? "Vérification…" : _runtime is null ? "Charger le runtime ZXG" : "IPC connecté";
+        PrimaryActionLabel.Text = !detected ? "Lancer Call of Duty Black Ops 3" : _busy ? "Vérification…" : _runtime is null ? "Charger le runtime ZXG" : "IPC connecté";
         PrimaryAction.IsEnabled = !_busy && _runtime is null && (detected ? _build?.DiagnosticSupported == true : _launchUntil <= DateTime.UtcNow);
         StopAction.IsEnabled = detected && !_busy;
+        StopAction.Visibility = detected ? Visibility.Visible : Visibility.Collapsed;
         RefreshFeatureStatus();
     }
 
@@ -203,12 +206,14 @@ public partial class MainWindow : Window
     private async void Refresh_Click(object sender, RoutedEventArgs e) { await DiscoverAsync(); await MonitorAsync(); }
     private void Page(UIElement page)
     {
-        OverviewPage.Visibility = ModulesPage.Visibility = InfoPage.Visibility = LogsPage.Visibility = Visibility.Collapsed;
+        OverviewPage.Visibility = SecurityPage.Visibility = ModulesPage.Visibility = InfoPage.Visibility = LogsPage.Visibility = Visibility.Collapsed;
+        SecurityNav.Tag=page==SecurityPage?"active":null;
         page.Visibility = Visibility.Visible;
         InfoNav.Tag=page==InfoPage?"active":null;
         OverviewNav.Tag=page==OverviewPage?"active":null; ModulesNav.Tag=page==ModulesPage?"active":null; LogsNav.Tag=page==LogsPage?"active":null;
     }
     private void Overview_Click(object sender, RoutedEventArgs e) => Page(OverviewPage);
+    private void Security_Click(object sender, RoutedEventArgs e) => Page(SecurityPage);
     private void Modules_Click(object sender, RoutedEventArgs e) => Page(ModulesPage);
     private void Logs_Click(object sender, RoutedEventArgs e) => Page(LogsPage);
 }

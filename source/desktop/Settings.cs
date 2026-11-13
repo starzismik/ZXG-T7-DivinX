@@ -10,6 +10,13 @@ public partial class MainWindow
     {
 
         var ready = _runtime?.Protections == "PARTIAL";
+        SecurityStatusValue.Text = ready
+            ? $"Protections partielles confirmées · {_runtime!.Hooks} hooks signalés par la DLL"
+            : _game is null ? "Inactives : BO3 n’est pas lancé."
+            : "Non confirmées : chargez le module et attendez la connexion à la DLL.";
+        SecurityStatusDetail.Text = ready
+            ? (_runtime!.Hooks == 14 ? "Sous-ensemble intégré : bornes lobby, NAT, présence, filtre mspreload et blocages Lua / navigateur / abonnements Workshop." : "Le nombre de hooks diffère des 14 attendus : couverture complète de notre sous-ensemble non confirmée.")
+            : "Le launcher ouvert et le lancement de BO3 seuls n’activent pas les protections. Chargement automatique décoché : une injection manuelle est nécessaire.";
         ProtectionValue.Text = ready ? "Partielles" : "Non installées";
         ProtectionDetail.Text = ready ? (_runtime!.Hooks == 14 ? "5 filtres + 3 blocages T7 Patch · 14 hooks" : $"5 filtres · {_runtime.Hooks} hooks") : "Initialisation non confirmée";
         MenuValue.Text = _runtime?.Menu == "RENDERED" ? (_runtime.MenuOpen ? "Ouvert" : "Disponible") : "En attente";

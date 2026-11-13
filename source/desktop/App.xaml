@@ -6,7 +6,7 @@
     <SolidColorBrush x:Key="Text" Color="#EEEEEE"/>
     <SolidColorBrush x:Key="Muted" Color="#AAAAAA"/>
     <Style TargetType="TextBlock"><Setter Property="TextWrapping" Value="Wrap"/></Style>
-    <Style x:Key="Card" TargetType="Border"><Setter Property="Background" Value="{StaticResource Surface}"/><Setter Property="BorderBrush" Value="{StaticResource Stroke}"/><Setter Property="BorderThickness" Value="1"/><Setter Property="CornerRadius" Value="0"/><Setter Property="Padding" Value="16"/><Setter Property="Margin" Value="0,0,0,14"/></Style>
+    <Style x:Key="Card" TargetType="Border"><Setter Property="Background" Value="{StaticResource Surface}"/><Setter Property="BorderBrush" Value="{StaticResource Stroke}"/><Setter Property="BorderThickness" Value="1"/><Setter Property="CornerRadius" Value="4"/><Setter Property="Padding" Value="16"/><Setter Property="Margin" Value="0,0,0,14"/></Style>
     <Style TargetType="Button">
       <Setter Property="Foreground" Value="{StaticResource Text}"/><Setter Property="Background" Value="#383838"/><Setter Property="BorderBrush" Value="#484848"/><Setter Property="BorderThickness" Value="1"/><Setter Property="Padding" Value="12,8"/><Setter Property="FontSize" Value="14"/><Setter Property="Cursor" Value="Hand"/>
       <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Button">

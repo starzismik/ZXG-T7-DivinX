@@ -5,8 +5,8 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
-[assembly: AssemblyVersion("1.0.2.0")]
-[assembly: AssemblyFileVersion("1.0.2.0")]
+[assembly: AssemblyVersion("1.0.3.0")]
+[assembly: AssemblyFileVersion("1.0.3.0")]
 [assembly: AssemblyProduct("[ZXG] T7 DivinX")]
 [assembly: AssemblyCompany("STARZISMIK")]
 internal static class StandaloneLauncher {
@@ -17,7 +17,7 @@ internal static class StandaloneLauncher {
     try { owns=mutex.WaitOne(0); } catch(AbandonedMutexException) { owns=true; }
     if(!owns) { MessageBox.Show("T7 DivinX est déjà ouvert.","T7 DivinX"); return; }
     string parent=Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"ZXG","T7DivinX");
-    string folder=Path.Combine(parent,"1.0.2-68a1dea184a55ca0");
+    string folder=Path.Combine(parent,"1.0.3-release-20261113");
     string exe=Path.Combine(folder,"ZXG T7 DivinX.exe");
     if(!File.Exists(Path.Combine(folder,"package.complete"))) {
      Directory.CreateDirectory(parent);
@@ -32,7 +32,7 @@ internal static class StandaloneLauncher {
        entry.ExtractToFile(path);
       }
      }
-     File.WriteAllText(Path.Combine(temp,"package.complete"),"1.0.2");
+     File.WriteAllText(Path.Combine(temp,"package.complete"),"1.0.3");
      Directory.Move(temp,folder);
     }
     using(var child=Process.Start(new ProcessStartInfo(exe){WorkingDirectory=folder,UseShellExecute=false})) child.WaitForExit();

@@ -15,16 +15,43 @@ internal sealed record GameInstance(int Pid, long Started, string Path);
 internal sealed record BuildInfo(uint Timestamp, uint ImageSize, string Hash, bool DiagnosticSupported);
 internal sealed record RuntimeStatus(int Pid, string Version, string Protections, string Menu, ulong Frames, bool MenuOpen, string PlayerName, bool PrivateNetwork, int Hooks, string Error, ulong DrawnFrames);
 internal sealed record LoadResult(bool Loaded, string Message);
+internal enum LoadedMenuKind { None, Selected, OtherDivinX, LegacyRuntime, Foreign, Multiple }
+internal sealed record LoadedMenuInfo(LoadedMenuKind Kind,string Name,string Path="");
 
 internal static class GuardServices
 {
     internal const string DiviniumName = "ZXG Divinium.dll";
-    internal const string DiviniumHash = "C3D3ACF97087CA2892C3DD38DB423388436D209F2BC541F582A88A4A92CDC33E";
+    internal const string DiviniumHash = "25A487DC52505739D30AE1924BDD899075A347E0E43E7651DC35210676BDBA1B";
+    internal const string InGameName = "ZXG InGame.dll";
+    internal const string InGameHash = "B8A9F1A2265809235CC52718146527EDCB2A0398ACBDBC84E35005D0A4D164D6";
     internal static bool HasSelectedModule(GameInstance game,string module) => HasModule(game,module);
     internal const string QolName = "ZXG DivinX.dll";
-    internal const string QolHash = "F4A6421000D99234E4742AF78BA9B15A4D741DDF20CFFF66C49F22446CB8059B";
+    internal const string QolHash = "8CB326B47B3BBC3A977A930A6D6F03A850716F5B301EA4D8A6FD39507BF3965C";
     internal const string RuntimeName = "ZXG T7 Guard Runtime.dll";
     internal const string ExpectedHash = "51CA63BBC660E0826943C60DA67606F6BCB4B3B519528B5E0548C68C9423A323";
+
+    internal static void InstallGscBridge(string gameExe)
+    {
+        string source = Path.Combine(AppContext.BaseDirectory, "bridge", "zxg_studio");
+        if (!Directory.Exists(source))
+            throw new DirectoryNotFoundException("Pont GSC DivinX absent du paquet de l'application.");
+
+        string gameRoot = Path.GetDirectoryName(Path.GetFullPath(gameExe))
+            ?? throw new InvalidDataException("Chemin de BO3 invalide.");
+        string destination = Path.Combine(gameRoot, "mods", "zxg_studio");
+        foreach (string file in Directory.EnumerateFiles(source, "*", SearchOption.AllDirectories))
+        {
+            string relative = Path.GetRelativePath(source, file);
+            if (relative.StartsWith(".." + Path.DirectorySeparatorChar, StringComparison.Ordinal) || Path.IsPathRooted(relative))
+                throw new InvalidDataException("Chemin du pont GSC invalide.");
+            string target = Path.Combine(destination, relative);
+            Directory.CreateDirectory(Path.GetDirectoryName(target)!);
+            File.Copy(file, target, true);
+        }
+        string zone = Path.Combine(destination, "zone", "zm_mod.ff");
+        if (!File.Exists(zone) || new FileInfo(zone).Length == 0)
+            throw new InvalidDataException("Installation du pont GSC incomplète.");
+    }
 
     internal static string? FindGame()
     {
@@ -141,7 +168,37 @@ internal static class GuardServices
     }
     internal static bool HasRuntime(GameInstance game) => HasModule(game, RuntimeName);
     internal static bool HasDivinX(GameInstance game) => HasModule(game, QolName);
-    internal static bool HasQol(GameInstance game) => HasModule(game, DiviniumName) || HasModule(game, QolName) || HasModule(game,"Scropts.QOL.v3.2.5.dll") || HasModule(game,"ZXG Menu.dll");
+    internal static bool HasQol(GameInstance game) => GetLoadedMenu(game,QolName).Kind is LoadedMenuKind.Selected or LoadedMenuKind.OtherDivinX or LoadedMenuKind.Foreign or LoadedMenuKind.Multiple;
+    internal static LoadedMenuInfo ClassifyLoadedMenus(IEnumerable<string> moduleNames,string selectedModule)
+    {
+        bool Known(string name) => name.Equals(QolName,StringComparison.OrdinalIgnoreCase) ||
+            name.Equals(DiviniumName,StringComparison.OrdinalIgnoreCase) ||
+            name.Equals(InGameName,StringComparison.OrdinalIgnoreCase) ||
+            name.Equals(RuntimeName,StringComparison.OrdinalIgnoreCase) ||
+            name.Equals("ZXG Menu.dll",StringComparison.OrdinalIgnoreCase) ||
+            name.EndsWith(".dll",StringComparison.OrdinalIgnoreCase) &&
+            (name.StartsWith("Scropts",StringComparison.OrdinalIgnoreCase) ||
+             name.StartsWith("Somnolence",StringComparison.OrdinalIgnoreCase) ||
+             name.StartsWith("Somnolance",StringComparison.OrdinalIgnoreCase) ||
+             name.StartsWith("T7Patch",StringComparison.OrdinalIgnoreCase));
+        var known=moduleNames.Select(name=>System.IO.Path.GetFileName(name)).Where(Known)
+            .Distinct(StringComparer.OrdinalIgnoreCase).OrderBy(name=>name,StringComparer.OrdinalIgnoreCase).ToArray();
+        if(known.Length==0)return new(LoadedMenuKind.None,"");
+        if(known.Length>1)return new(LoadedMenuKind.Multiple,string.Join(", ",known));
+        var module=known[0];
+        if(module.Equals(RuntimeName,StringComparison.OrdinalIgnoreCase))return new(LoadedMenuKind.LegacyRuntime,module);
+        if(module.Equals(QolName,StringComparison.OrdinalIgnoreCase) || module.Equals(DiviniumName,StringComparison.OrdinalIgnoreCase) || module.Equals(InGameName,StringComparison.OrdinalIgnoreCase))
+            return new(module.Equals(selectedModule,StringComparison.OrdinalIgnoreCase)?LoadedMenuKind.Selected:LoadedMenuKind.OtherDivinX,module);
+        return new(LoadedMenuKind.Foreign,module);
+    }
+    internal static LoadedMenuInfo GetLoadedMenu(GameInstance game,string selectedModule)
+    {
+        if(!IsSameProcess(game))throw new InvalidOperationException("BO3 a changé de session pendant la détection.");
+        using var process=Process.GetProcessById(game.Pid);
+        var modules=process.Modules.Cast<ProcessModule>().ToArray();
+        var result=ClassifyLoadedMenus(modules.Select(module=>module.ModuleName),selectedModule);
+        return result with { Path=modules.FirstOrDefault(module=>module.ModuleName.Equals(result.Name,StringComparison.OrdinalIgnoreCase))?.FileName??"" };
+    }
     private static bool HasModule(GameInstance game, string moduleName)
     {
         using var p = Process.GetProcessById(game.Pid);
@@ -156,13 +213,42 @@ internal static class GuardServices
     internal static void VerifyQolFile(string dll)
     {
         using var file=File.OpenRead(dll);
-        if(Convert.ToHexString(SHA256.HashData(file))!=(Path.GetFileName(dll)==DiviniumName?DiviniumHash:QolHash))throw new InvalidDataException("La DLL ne correspond pas à la version DivinX française validée.");
+        string name=Path.GetFileName(dll);
+        string expected=name==DiviniumName?DiviniumHash:name==InGameName?InGameHash:name==QolName?QolHash:"";
+        if(expected.Length!=64 || Convert.ToHexString(SHA256.HashData(file))!=expected)throw new InvalidDataException("La DLL ne correspond pas à la version DivinX française validée.");
     }
+    internal const int GameWindowDelayMilliseconds = 20000;
+    private static readonly object GameWindowGate = new();
+    private static (int Pid,long Started,long Since,bool Seen) _gameWindowObservation;
+    internal static int ObserveGameWindow(GameInstance? game,bool visible,long now)
+    {
+        lock(GameWindowGate)
+        {
+            if(game is null){_gameWindowObservation=default;return GameWindowDelayMilliseconds / 1000;}
+            if(_gameWindowObservation.Pid!=game.Pid || _gameWindowObservation.Started!=game.Started)
+                _gameWindowObservation=(game.Pid,game.Started,0,false);
+            if(!_gameWindowObservation.Seen && visible)
+                _gameWindowObservation=(game.Pid,game.Started,now,true);
+            if(!_gameWindowObservation.Seen)return GameWindowDelayMilliseconds / 1000;
+            long remaining=GameWindowDelayMilliseconds-Math.Max(0,now-_gameWindowObservation.Since);
+            return (int)Math.Max(0,(remaining+999)/1000);
+        }
+    }
+    internal static int GameWindowDelayRemaining(GameInstance game)
+    {
+        if(!IsSameProcess(game)){ObserveGameWindow(null,false,Environment.TickCount64);return GameWindowDelayMilliseconds / 1000;}
+        using var process=Process.GetProcessById(game.Pid);
+        var window=process.MainWindowHandle;
+        return ObserveGameWindow(game,window!=0 && IsWindowVisible(window),Environment.TickCount64);
+    }
+    [DllImport("user32.dll")] private static extern bool IsWindowVisible(nint window);
+    internal const int RendererStabilityMilliseconds = 3000;
     private static readonly object RendererGate = new();
-    private static (int Pid, long Started, ulong Chain, ulong Table, long Since) _rendererObservation;
+    private static (int Pid, long Started, ulong Chain, ulong Table, ulong Friends, ulong Apps, ulong Network, long Since) _rendererObservation;
     internal static bool QolRendererReady(GameInstance game)
     {
         if(!IsSameProcess(game))return false;
+        int windowDelay=GameWindowDelayRemaining(game);
         using var p=Process.GetProcessById(game.Pid);
         long image=p.MainModule!.BaseAddress.ToInt64();
         nint handle=OpenProcess(0x410,false,game.Pid);
@@ -170,20 +256,36 @@ internal static class GuardServices
         try
         {
             ulong Read(long address){byte[] b=new byte[8];return ReadProcessMemory(handle,(nint)address,b,8,out var n)&&n==8?BitConverter.ToUInt64(b):0;}
-            if(Read(image+0x1686E948)==0)return false;
-            ulong chain=Read(image+0xF4378D8);if(chain==0)return false;
+            if(Read(image+0x1686E948)==0){lock(RendererGate) _rendererObservation=default;return false;}
+            ulong chain=Read(image+0xF4378D8);if(chain==0){lock(RendererGate) _rendererObservation=default;return false;}
             ulong table=Read((long)chain);
-            if(table==0||Read((long)table+8*8)==0||Read((long)table+13*8)==0)return false;
+            bool Method(ulong instance,int index) { ulong vtable=Read((long)instance);return vtable!=0 && Read((long)vtable+index*8)!=0; }
+            ulong friends=Read(image+0x10B3DC20), apps=Read(image+0x10B3DC40), network=Read(image+0x10B3DC50);
+            if(table==0||Read((long)table+8*8)==0||Read((long)table+13*8)==0 ||
+               !Method(friends,0)||!Method(apps,6)||!Method(apps,7)||!Method(network,2))
+            {
+                lock(RendererGate) _rendererObservation=default;
+                return false;
+            }
             // A non-null swap chain can appear while BO3 is still starting.
             // Require a stable renderer observation and a responsive game window.
-            lock(RendererGate)
-            {
-                if(_rendererObservation.Pid!=game.Pid || _rendererObservation.Started!=game.Started || _rendererObservation.Chain!=chain || _rendererObservation.Table!=table)
-                    _rendererObservation=(game.Pid,game.Started,chain,table,Environment.TickCount64);
-                return Environment.TickCount64-_rendererObservation.Since>=10000 && DateTime.UtcNow-p.StartTime.ToUniversalTime()>=TimeSpan.FromSeconds(45) && p.MainWindowHandle!=0 && p.Responding;
-            }
+            bool stable=ObserveRenderer(game,chain,table,friends,apps,network,p.MainWindowHandle!=0 && p.Responding,Environment.TickCount64);
+            return stable && windowDelay==0;
         }
         finally{CloseHandle(handle);}
+    }
+    internal static bool ObserveRenderer(GameInstance game,ulong chain,ulong table,ulong friends,ulong apps,ulong network,bool responsive,long now)
+    {
+        lock(RendererGate)
+        {
+            if(!responsive || chain==0 || table==0 || friends==0 || apps==0 || network==0)
+            { _rendererObservation=default;return false; }
+            if(_rendererObservation.Pid!=game.Pid || _rendererObservation.Started!=game.Started ||
+               _rendererObservation.Chain!=chain || _rendererObservation.Table!=table ||
+               _rendererObservation.Friends!=friends || _rendererObservation.Apps!=apps || _rendererObservation.Network!=network)
+                _rendererObservation=(game.Pid,game.Started,chain,table,friends,apps,network,now);
+            return now-_rendererObservation.Since>=RendererStabilityMilliseconds;
+        }
     }
     internal static string CenterQolLayout(string ini, int width, int height)
     {
@@ -200,9 +302,12 @@ internal static class GuardServices
     {
         if(!InspectBuild(game.Path).DiagnosticSupported)throw new InvalidDataException("Build BO3 inconnu : chargement refusé.");
         VerifyQolFile(dll);
+        var loaded=GetLoadedMenu(game,Path.GetFileName(dll));
+        if(loaded.Kind is LoadedMenuKind.LegacyRuntime or LoadedMenuKind.Foreign or LoadedMenuKind.Multiple)
+            throw new InvalidOperationException($"Module déjà chargé : {loaded.Name}. Redémarrez BO3 avant une autre injection.");
         if(HasRuntime(game))throw new InvalidOperationException("Runtime ZXG déjà chargé : redémarrez BO3. Les deux DLL ne doivent pas être chargées ensemble.");
         var moduleName=Path.GetFileName(dll);
-        if(moduleName!=QolName && moduleName!=DiviniumName)throw new InvalidDataException("Module inconnu.");
+        if(moduleName!=QolName && moduleName!=DiviniumName && moduleName!=InGameName)throw new InvalidDataException("Module inconnu.");
         if(HasModule(game,moduleName))return new(true,"DLL DivinX déjà présente ; aucun second chargement.");
         if(HasQol(game))throw new InvalidOperationException("Ancien menu chargé : redémarrez BO3 pour afficher le titre DivinX.");
         if(!QolRendererReady(game))return new(false,"BO3 initialise encore son rendu. Attendez son écran de titre puis actualisez.");
